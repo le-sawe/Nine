@@ -59,12 +59,16 @@ function refresh(){
 // put a smile face
 function put_smile(y,x){
     if(board[y][x] !=1){
+        console.log("this square is empty");
         board[y][x]=1;
+        console.log("put the smile");
         var collected_socre =smile_align_finder(y,x);
         if(collected_socre > 0)add_score(collected_socre);else switch_player();
+        console.log("score calculation done");
     }
     else {alert("-_- can you click an empty square ?");}
     refresh();
+    console.log("refresh");
 }
 
 //switch player function
@@ -91,13 +95,13 @@ function smile_align_finder(y,x){
     }
     //check top
     var top=0;
-    for(var j=y+1;j<board_width;j++){
+    for(var j=y+1;j<board_height;j++){
         if(board[j][x] ==0)break;
         else top++;
     }
     // check bottom
     var bottom=0;
-    for(var j=y-1;j<board_width;j--){
+    for(var j=y-1;j>-1;j--){
         if(board[j][x] ==0)break;
         else bottom++;
     }    
