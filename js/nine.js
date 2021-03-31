@@ -63,9 +63,8 @@ function put_smile(y,x){
         var collected_socre =smile_align_finder(y,x);
         if(collected_socre > 0)add_score(collected_socre);else switch_player();
     }
-    else alert("-_- can you click an empty square ?")
+    else {alert("-_- can you click an empty square ?");}
     refresh();
-    
 }
 
 //switch player function
